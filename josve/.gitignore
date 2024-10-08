@@ -1,0 +1,9 @@
+venv/
+.idea/
+josve/
+media/
+arab-hot.pdf
+local_settings.py
+
+**/__pycache__/
+*.pyc
