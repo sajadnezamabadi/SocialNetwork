@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
 
 from pathlib import Path
 from datetime import timedelta
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-u^ln6qh$dit-@pjlv)rlja=prvgtqo%f^&cby*vp06r!_rq5*&
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
-
+DEVEL = True 
 ALLOWED_HOSTS = []
 
 
@@ -129,9 +130,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-
+BASE_URL = 'http://127.0.0.1:8000/'
 STATIC_URL = 'static/'
-
+MEDIA_URL = f'{BASE_URL}media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

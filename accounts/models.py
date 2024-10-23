@@ -10,6 +10,9 @@ class Country(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     
+    def __str__(self) -> str:
+        return self.name
+    
     class Meta:
         verbose_name = 'country'
         verbose_name_plural = 'countries'
@@ -20,7 +23,7 @@ class Profile(models.Model):
     user = models.OneToOneField(to=settings.AUTH_USER_MODEL , on_delete=models.CASCADE)
     phone_number = models.BigIntegerField(blank=True,null=True,unique=True)
     country = models.ForeignKey(to=Country , on_delete=models.CASCADE)   
-    avatar = models.ImageField('avatar',blank=True)
+    avatar = models.ImageField(blank=True, upload_to='profile_avatar/')
     
     
 class Device(models.Model):

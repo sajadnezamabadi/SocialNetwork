@@ -74,7 +74,7 @@ class AcceptView(APIView):
 
 class FriendListView(APIView):
     permission_classes = [IsAuthenticated]
-
+    
     def get(self, request):
         friendship = Friendship.objects.filter(
             Q(request_from_id=request.user) | Q(request_to=request.user),
